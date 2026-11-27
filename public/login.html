@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Secure Login System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+    <main class="auth-shell">
+        <header class="brand-header">
+            <div class="brand-badge" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+            </div>
+            <h1>Secure Login System</h1>
+            <p class="subtitle">Sign in to continue to your dashboard</p>
+        </header>
+
+        <section class="auth-card" aria-labelledby="loginHeading">
+            <div class="card-header">
+                <h2 id="loginHeading">Welcome back</h2>
+                <p>Enter your credentials to access your account</p>
+            </div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="username"
+                        spellcheck="false"
+                        enterkeyhint="next"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a href="#" id="forgotPasswordLink" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            enterkeyhint="done"
+                            required
+                        >
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="toggle-password-btn"
+                            aria-pressed="false"
+                            aria-label="Show password"
+                        >
+                            <svg id="eyeOpenIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg id="eyeClosedIcon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path>
+                                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" id="loginBtn" class="btn-primary">Login</button>
+            </form>
+
+            <p id="message" class="status-message" role="status" aria-live="polite"></p>
+
+            <p class="auth-footer">
+                Don't have an account?
+                <a href="index.html">Register here</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>

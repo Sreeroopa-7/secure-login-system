@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Secure Login System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+
+    <div id="loadingState" class="dashboard-loading">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="subtitle">Verifying your session...</p>
+    </div>
+
+    <div id="dashboardContent" class="dashboard-shell hidden">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="topbar-brand">
+                    <div class="topbar-logo" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="topbar-title">Secure Login System</div>
+                        <div class="topbar-subtitle">Protected Workspace</div>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <span class="session-pill">
+                        <span class="session-dot" aria-hidden="true"></span>
+                        Active Session
+                    </span>
+                    <button id="logoutBtn" type="button" class="btn-logout">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="welcome-banner" aria-labelledby="welcomeHeading">
+                <div>
+                    <p class="welcome-eyebrow">Authenticated Dashboard</p>
+                    <h1 id="welcomeHeading">Welcome back, <span id="welcomeName">User</span></h1>
+                    <p id="welcomeText">You are securely signed in with an active server session.</p>
+                </div>
+            </section>
+
+            <div class="dashboard-grid">
+                <section class="dash-card" aria-labelledby="profileHeading">
+                    <div class="dash-card-header">
+                        <h2 id="profileHeading">Profile Overview</h2>
+                    </div>
+
+                    <div class="profile-identity">
+                        <div id="userInitials" class="avatar-circle" aria-hidden="true">U</div>
+                        <div>
+                            <div id="profileName" class="profile-name">—</div>
+                            <div id="profileEmail" class="profile-email">—</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Full Name</span>
+                            <span id="userName" class="detail-value">—</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email Address</span>
+                            <span id="userEmail" class="detail-value">—</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">User ID</span>
+                            <span id="userId" class="detail-value">—</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Account Status</span>
+                            <span class="detail-value">Verified Session</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="dash-card" aria-labelledby="securityHeading">
+                    <div class="dash-card-header">
+                        <h2 id="securityHeading">Session Security</h2>
+                    </div>
+
+                    <div class="security-list">
+                        <div class="security-item">
+                            <div>
+                                <div class="security-item-title">HTTP-Only Cookie</div>
+                                <div class="security-item-desc">Protected against client-side script access</div>
+                            </div>
+                            <span class="security-badge">Enabled</span>
+                        </div>
+                        <div class="security-item">
+                            <div>
+                                <div class="security-item-title">Password Hashing</div>
+                                <div class="security-item-desc">Salted bcrypt verification</div>
+                            </div>
+                            <span class="security-badge">Active</span>
+                        </div>
+                        <div class="security-item">
+                            <div>
+                                <div class="security-item-title">Route Protection</div>
+                                <div class="security-item-desc">Server-side session middleware</div>
+                            </div>
+                            <span class="security-badge">Enforced</span>
+                        </div>
+                    </div>
+
+                    <button id="cardLogoutBtn" type="button" class="btn-primary card-logout-btn">Sign Out of Session</button>
+                    <p id="message" class="status-message" role="status" aria-live="polite"></p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
